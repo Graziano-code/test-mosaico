@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informativa Privacy - A Piccoli Passi APS</title>
+    <meta name="description" content="Informativa sul trattamento dei dati personali ai sensi del Regolamento UE 2016/679 (GDPR) dell'Associazione A Piccoli Passi APS di San Pietro in Vincoli (RA).">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="canonical" href="https://apsapiccolipassi.github.io/privacy.html">
+    <meta name="theme-color" content="#2d5a27">
+
+    <link rel="preload" href="fonts/titilliumweb-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/titilliumweb-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <style>
+        /* FONT SELF-HOSTED IN LOCALE */
+        @font-face {
+            font-family: 'Caveat';
+            font-style: normal;
+            font-weight: 700;
+            font-display: optional;
+            src: url('fonts/caveat-700-latin.woff2') format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+        @font-face {
+            font-family: 'Titillium Web';
+            font-style: normal;
+            font-weight: 400;
+            font-display: optional;
+            src: url('fonts/titilliumweb-400-latin.woff2') format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+        @font-face {
+            font-family: 'Titillium Web';
+            font-style: normal;
+            font-weight: 600;
+            font-display: optional;
+            src: url('fonts/titilliumweb-600-latin.woff2') format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+        @font-face {
+            font-family: 'Titillium Web';
+            font-style: normal;
+            font-weight: 700;
+            font-display: optional;
+            src: url('fonts/titilliumweb-700-latin.woff2') format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        :root {
+            --c-forest: #2d5a27;
+            --c-primary: #3d792b;
+            --c-leaf: #689f38;
+            --c-orange: #c54316;
+            --c-blue: #1d70b8;
+            --c-yellow: #f4b223;
+            --c-bg: #fdfbf7;
+            --c-surface: #ffffff;
+            --c-border: #e0e7dc;
+            --c-text: #212b30;
+            --c-text-muted: #51636d;
+            --font-main: "Titillium Web", system-ui, sans-serif;
+            --font-script: "Caveat", cursive;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: var(--font-main);
+            background-color: var(--c-bg);
+            background-image: radial-gradient(#dbe8d2 1.2px, transparent 1.2px);
+            background-size: 28px 28px;
+            color: var(--c-text);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .site-header {
+            background: #ffffff;
+            border-bottom: 3px solid var(--c-primary);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 0.75rem 1rem;
+        }
+        .header-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .brand-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        .brand-logo {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 2px solid var(--c-primary);
+            object-fit: contain;
+        }
+        .brand-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--c-blue);
+        }
+        .brand-title .brand-accent {
+            color: var(--c-orange);
+            font-family: var(--font-script);
+            font-size: 1.6rem;
+        }
+        .nav-back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 700;
+            color: var(--c-forest);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            background: #f4f8f1;
+            transition: all 0.2s;
+        }
+        .nav-back-link:hover {
+            background: var(--c-primary);
+            color: #ffffff;
+        }
+
+        .privacy-main {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 1.25rem;
+        }
+
+        .privacy-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            border: 2px solid var(--c-border);
+            box-shadow: 0 8px 24px rgba(45, 90, 39, 0.08);
+        }
+
+        h1 {
+            font-size: 2.3rem;
+            color: var(--c-forest);
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+        .privacy-subtitle {
+            color: var(--c-text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1.5px solid var(--c-border);
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            color: var(--c-forest);
+            margin: 2rem 0 0.75rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        p, li {
+            color: var(--c-text);
+            font-size: 1.05rem;
+            margin-bottom: 0.85rem;
+            line-height: 1.65;
+        }
+
+        ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .info-highlight-box {
+            background: #f8faf6;
+            border-left: 4px solid var(--c-primary);
+            padding: 1.25rem;
+            border-radius: 0 12px 12px 0;
+            margin: 1.5rem 0;
+        }
+
+        .site-footer {
+            background: var(--c-forest);
+            color: #ffffff;
+            padding: 2.5rem 1rem;
+            text-align: center;
+            font-size: 0.95rem;
+            margin-top: 4rem;
+        }
+        .site-footer a {
+            color: var(--c-yellow);
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-container">
+            <a href="./" class="brand-link">
+                <img src="images/logo-trasparente.webp?v=3" alt="Logo A Piccoli Passi APS" class="brand-logo" width="44" height="44">
+                <span class="brand-title"><span class="brand-accent">A</span> Piccoli Passi APS</span>
+            </a>
+            <a href="./" class="nav-back-link">
+                ← Torna al Sito
+            </a>
+        </div>
+    </header>
+
+    <main class="privacy-main">
+        <article class="privacy-card">
+            <h1>Informativa Privacy (GDPR)</h1>
+            <p class="privacy-subtitle">Ai sensi del Regolamento (UE) 2016/679 (GDPR) e della normativa nazionale vigente</p>
+
+            <div class="info-highlight-box">
+                <p style="margin-bottom: 0.35rem;"><strong>Titolare del Trattamento dei Dati:</strong></p>
+                <p style="margin-bottom: 0;">
+                    <strong>A Piccoli Passi APS</strong> (Associazione di Promozione Sociale)<br>
+                    Sede legale e operativa: Via Gambellara, 7, 48125 Ravenna frazione San Pietro in Vincoli RA<br>
+                    Codice Fiscale: <strong>92105570391</strong><br>
+                    Legale Rappresentante e Presidente: <strong>Glenda Sternini</strong><br>
+                    Email di contatto: <a href="mailto:apsapiccolipassi.spiv@gmail.com" style="color: var(--c-primary); font-weight: bold;">apsapiccolipassi.spiv@gmail.com</a>
+                </p>
+            </div>
+
+            <h2>1. Finalità del Trattamento</h2>
+            <p>I dati personali forniti (attraverso i moduli di tesseramento, contatti telefonici, WhatsApp, email o durante le attività associative) sono trattati per le seguenti finalità istituzionali:</p>
+            <ul>
+                <li>Gestione della domanda di ammissione a socio e tenuta del libro degli associati (Art. 9, 10, 22 dello Statuto);</li>
+                <li>Gestione e rendicontazione delle quote associative annuali e delle donazioni liberali;</li>
+                <li>Comunicazioni istituzionali relative alla vita dell'Associazione, convocazione delle assemblee, organizzazione di progetti scolastici, laboratori ed eventi;</li>
+                <li>Adempimenti contabili, fiscali e amministrativi previsti dal Codice del Terzo Settore (D.Lgs. 117/2017).</li>
+            </ul>
+
+            <h2>2. Fotografie, Video e Tutela dei Minori</h2>
+            <p>Nel pieno rispetto della dignità, della riservatezza e della normativa a tutela dei minori:</p>
+            <ul>
+                <li>L'eventuale realizzazione e pubblicazione di foto o video durante le attività associative (su canali social, sito web o materiale documentativo) avviene <strong>esclusivamente previa sottoscrizione di apposita autorizzazione scritta e separata (Liberatoria)</strong>.</li>
+                <li>Per quanto riguarda i minori, la pubblicazione delle immagini avviene sempre e soltanto <strong>CON VOLTO COPERTO</strong> o non riconoscibile, come prescritto dall'apposito modulo di consenso dei genitori.</li>
+                <li>L'autorizzazione è gratuita e può essere revocata in qualsiasi momento con semplice comunicazione scritta.</li>
+            </ul>
+
+            <h2>3. Navigazione sul Sito Web e Cookie</h2>
+            <p>Il presente sito web (<code>apsapiccolipassi.github.io</code>):</p>
+            <ul>
+                <li><strong>Non utilizza cookie di profilazione</strong> né strumenti di tracciamento pubblicitario o analytics invasivi.</li>
+                <li><strong>Non trasmette l'indirizzo IP a terze parti</strong>: tutti i caratteri tipografici (font) sono ospitati localmente (self-hosted) e non vengono caricati server esterni di Google.</li>
+                <li>Gli unici dati tecnici eventualmente raccolti dai log del server web sono quelli strettamente necessari per il corretto instradamento e funzionamento della connessione.</li>
+            </ul>
+
+            <h2>4. Base Giuridica e Modalità di Trattamento</h2>
+            <p>Il trattamento si fonda sull'esecuzione del rapporto associativo (Art. 6, par. 1, lett. b GDPR), sull'adempimento di obblighi legali e del Terzo Settore (Art. 6, par. 1, lett. c GDPR) e sul consenso esplicito e informato dell'interessato per comunicazioni e materiale multimediale (Art. 6, par. 1, lett. a GDPR).</p>
+            <p>I trattamenti sono svolti con strumenti cartacei e informatici idonei a garantire sicurezza, riservatezza e minimizzazione dei dati.</p>
+
+            <h2>5. Periodo di Conservazione</h2>
+            <p>I dati personali saranno conservati per l'intera durata del rapporto associativo e, successivamente alla cessazione, per il periodo prescritto dalle normative civilistiche, contabili e del Terzo Settore.</p>
+
+            <h2>6. Diritti dell'Interessato</h2>
+            <p>Ai sensi degli articoli 15-22 del Regolamento UE 2016/679, ciascun interessato ha il diritto di:</p>
+            <ul>
+                <li>Accedere ai propri dati personali e richiederne copia;</li>
+                <li>Chiedere la rettifica dei dati inesatti o l'integrazione di quelli incompleti;</li>
+                <li>Richiedere la cancellazione dei dati (nei casi previsti dalla legge);</li>
+                <li>Revocare in qualsiasi momento il consenso precedentemente rilasciato;</li>
+                <li>Proporre reclamo all'Autorità Garante per la Protezione dei Dati Personali (<a href="https://www.garanteprivacy.it" target="_blank" rel="noopener noreferrer" style="color: var(--c-primary);">www.garanteprivacy.it</a>).</li>
+            </ul>
+            <p>Per esercitare i propri diritti è sufficiente inviare una richiesta all'indirizzo email: <a href="mailto:apsapiccolipassi.spiv@gmail.com" style="color: var(--c-primary); font-weight: bold;">apsapiccolipassi.spiv@gmail.com</a>.</p>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026-2027 <strong>A Piccoli Passi APS</strong> • C.F. 92105570391 • San Pietro in Vincoli (RA)</p>
+        <p style="margin-top: 0.5rem;"><a href="./">Torna alla Home</a> | <a href="documenti.html">Documenti e Statuto</a></p>
+    </footer>
+
+</body>
+</html>

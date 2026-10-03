@@ -1,0 +1,5 @@
+# robots.txt per A Piccoli Passi APS
+User-agent: *
+Allow: /
+
+Sitemap: https://apsapiccolipassi.github.io/sitemap.xml
