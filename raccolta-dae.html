@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raccolta Fondi DAE</title>
+    <style>
+        :root {
+            --primary-color: #e53935;
+            --bg-color: #f5f5f5;
+            --text-color: #333;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            text-align: center;
+        }
+        .hero {
+            width: 100%;
+            height: 40vh;
+            background-image: url('images/Cuore Bizantino in Mosaico.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero h1 {
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            font-size: 2.5rem;
+            margin: 0 1rem;
+        }
+        .container {
+            padding: 2rem 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .progress-container {
+            margin: 2rem 0;
+        }
+        .heart-svg {
+            width: 150px;
+            height: 150px;
+        }
+        .stats {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+        .btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s, background-color 0.2s;
+            margin-top: 2rem;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            background-color: #d32f2f;
+        }
+        .btn:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <h1>Un DAE per la nostra comunità</h1>
+    </div>
+
+    <div class="container">
+        <p>Aiutaci a raggiungere il nostro obiettivo per l'acquisto di un defibrillatore.</p>
+        
+        <div class="progress-container">
+            <svg class="heart-svg" viewBox="0 0 32 29.6">
+                <!-- Background heart (gray) -->
+                <path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2
+                    c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z" fill="#ccc"/>
+                <!-- Filled heart (red) with clip-path -->
+                <clipPath id="fill-clip">
+                    <rect id="clip-rect" x="0" y="29.6" width="32" height="0" />
+                </clipPath>
+                <path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2
+                    c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z" fill="var(--primary-color)" clip-path="url(#fill-clip)"/>
+            </svg>
+            <div class="stats">
+                <span id="current-amount">0</span>€ / <span id="total-amount">1500</span>€
+            </div>
+        </div>
+
+        <button class="btn" id="generate-btn">Ritira il tuo pezzetto digitale!</button>
+    </div>
+
+    <canvas id="canvas" width="1080" height="1080" style="display:none;"></canvas>
+
+    <script>
+        // Simulate fetch data
+        const currentGoal = 850;
+        const totalGoal = 1500;
+        
+        document.getElementById('current-amount').textContent = currentGoal;
+        document.getElementById('total-amount').textContent = totalGoal;
+
+        // Calculate fill percentage
+        const percentage = Math.min(currentGoal / totalGoal, 1);
+        
+        // Update SVG clip-path
+        const clipRect = document.getElementById('clip-rect');
+        const svgHeight = 29.6;
+        const fillHeight = svgHeight * percentage;
+        const fillY = svgHeight - fillHeight;
+        
+        clipRect.setAttribute('y', fillY);
+        clipRect.setAttribute('height', fillHeight);
+
+        // Canvas Generation
+        document.getElementById('generate-btn').addEventListener('click', () => {
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+            const img = new Image();
+            
+            // Handle loading state
+            const btn = document.getElementById('generate-btn');
+            const originalText = btn.textContent;
+            btn.textContent = 'Generazione in corso...';
+            btn.disabled = true;
+
+            img.onload = () => {
+                // Draw background
+                ctx.fillStyle = '#333';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                // Draw image covering the canvas (contain or cover depending on aspect ratio)
+                const scale = Math.max(canvas.width / img.width, canvas.height / img.height);
+                const x = (canvas.width / 2) - (img.width / 2) * scale;
+                const y = (canvas.height / 2) - (img.height / 2) * scale;
+                ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
+
+                // Draw dark semi-transparent overlay
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                // Draw text
+                ctx.fillStyle = '#ffffff';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                
+                // Title
+                ctx.font = 'bold 60px sans-serif';
+                ctx.fillText('HO DONATO PER IL DAE!', canvas.width / 2, canvas.height / 2 - 40);
+                
+                // Subtitle
+                ctx.font = '40px sans-serif';
+                ctx.fillText('1€ in cultura, 1€ in salute!', canvas.width / 2, canvas.height / 2 + 40);
+
+                // Download the generated image
+                const link = document.createElement('a');
+                link.download = 'pezzetto-digitale-dae.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+
+                // Reset button state
+                btn.textContent = originalText;
+                btn.disabled = false;
+            };
+
+            img.onerror = () => {
+                alert('Errore nel caricamento dell\'immagine di sfondo.');
+                btn.textContent = originalText;
+                btn.disabled = false;
+            };
+
+            // Load the image
+            img.src = 'images/Cuore Bizantino in Mosaico.png';
+        });
+    </script>
+</body>
+</html>
