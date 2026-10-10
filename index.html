@@ -71,7 +71,7 @@
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": ["NGO", "EducationalOrganization", "LocalBusiness"],
+          "@type": "NGO",
           "@id": "https://apsapiccolipassi.github.io/#organization",
           "name": "A Piccoli Passi APS",
           "legalName": "A Piccoli Passi APS",
@@ -107,24 +107,26 @@
           },
           "areaServed": [
             {
-              "@type": "Place",
-              "name": "San Pietro in Vincoli"
-            },
-            {
-              "@type": "AdministrativeArea",
+              "@type": "City",
               "name": "Ravenna"
             },
             {
-              "@type": "AdministrativeArea",
-              "name": "Emilia-Romagna"
+              "@type": "Place",
+              "name": "San Pietro in Vincoli",
+              "containedInPlace": {
+                "@type": "City",
+                "name": "Ravenna"
+              }
             }
           ],
           "parentOrganization": {
             "@type": "EducationalOrganization",
             "name": "Polo d'Infanzia Paritario Madre Teresa di Calcutta"
           },
+          "hasMap": "https://maps.app.goo.gl/BKAV6Yca4wChmzrr6",
           "sameAs": [
-            "https://www.instagram.com/apiccolipassi.associazione"
+            "https://www.instagram.com/apiccolipassi.associazione",
+            "https://maps.app.goo.gl/BKAV6Yca4wChmzrr6"
           ],
           "contactPoint": [
             {
@@ -147,7 +149,18 @@
               "contactType": "informazioni, tesseramento e donazioni",
               "availableLanguage": ["Italian"]
             }
-          ]
+          ],
+          "potentialAction": {
+            "@type": "DonateAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://graziano-code.github.io/test-mosaico/raccolta-dae.html"
+            },
+            "recipient": {
+              "@type": "NGO",
+              "name": "A Piccoli Passi APS"
+            }
+          }
         },
         {
           "@type": "FAQPage",
@@ -2982,15 +2995,18 @@
                     
                     <!-- COLONNA 1: TESTO ED EMOZIONE -->
                     <div class="iniziative-content">
-                        <span class="iniziative-badge-progetto"><span aria-hidden="true">❤️</span> Iniziativa Straordinaria</span>
-                        <h2 class="iniziative-title">Un battito per la vita: Aiutaci a proteggere la nostra scuola</h2>
+                        <span class="iniziative-badge-progetto"><span aria-hidden="true">❤️</span> Progetto in Evidenza</span>
+                        <h2 class="iniziative-title">Un mosaico per il DAE: 1€ in cultura, 1€ in salute!</h2>
                         
                         <div class="iniziative-text">
                             <p>
-                                La sicurezza dei nostri figli non ha prezzo, ma insieme possiamo renderla concreta. Quest'anno l'Associazione A Piccoli Passi APS ha lanciato una missione straordinaria: raccogliere i fondi necessari per acquistare e installare un defibrillatore semiautomatico (DAE) all'interno del polo scolastico 'Madre Teresa di Calcutta', e coprire i costi dei corsi di abilitazione BLSD (Rianimazione Cardiopolmonare e Uso del Defibrillatore) per le nostre maestre.
+                                Sostieni il nostro nuovo progetto per la sicurezza e l'arte a <strong>San Pietro in Vincoli (Ravenna)</strong>. Quest'anno l'Associazione A Piccoli Passi APS ha lanciato una missione straordinaria: raccogliere i fondi necessari per acquistare un defibrillatore semiautomatico (DAE) per il polo scolastico 'Madre Teresa di Calcutta' e realizzare contemporaneamente un'opera d'arte locale.
                             </p>
                             <p>
-                                Un intervento tempestivo può salvare una vita. Ogni piccolo contributo, che sia una donazione libera o il supporto alle nostre attività, ci avvicina a questo grande obiettivo di comunità. Dona anche tu un battito di sicurezza per la scuola!
+                                La meccanica è semplice e solidale: <strong>con una donazione di soli 2€</strong>, potrai colorare una cella del nostro speciale tabellone esposto a scuola e apporre la tua firma sul registro ufficiale. Unisciti a noi!
+                            </p>
+                            <p style="font-size: 0.85rem; color: var(--c-text-muted); margin-top: 1rem;">
+                                <em>Trasparenza e Normativa:</em> Campagna condotta in conformità all'<strong>Art. 7 del D.Lgs. 117/2017</strong> sulla raccolta fondi. Le erogazioni liberali tracciabili beneficiano delle agevolazioni fiscali ex <strong>Art. 83 del D.Lgs. 117/2017</strong>.
                             </p>
                         </div>
 
@@ -3003,17 +3019,17 @@
                                 </div>
                             </div>
                             <div class="dae-feature-item">
-                                <span class="dae-feature-icon" aria-hidden="true">🎓</span>
+                                <span class="dae-feature-icon" aria-hidden="true">🎨</span>
                                 <div>
-                                    <strong>Corsi BLSD per le Maestre</strong>
-                                    <span>Abilitazione e formazione continua al primo soccorso pediatrico.</span>
+                                    <strong>Opera d'Arte Locale</strong>
+                                    <span>Un mosaico artistico realizzato grazie al contributo di tutta la comunità.</span>
                                 </div>
                             </div>
                         </div>
 
                         <div class="dae-actions">
-                            <a href="raccolta-dae.html" class="btn btn-primary" aria-label="Dona ora per sostenere l'acquisto del defibrillatore DAE">
-                                ❤️ Sostieni il Progetto DAE
+                            <a href="https://graziano-code.github.io/test-mosaico/raccolta-dae.html" class="btn btn-primary" aria-label="Dona ora per sostenere l'acquisto del defibrillatore DAE e il mosaico">
+                                ❤️ Scopri il Progetto e Dona Ora
                             </a>
                             <a href="#contatti" class="btn btn-secondary" aria-label="Contattaci per informazioni sull'iniziativa DAE">
                                 Chiedi Informazioni
@@ -3390,7 +3406,7 @@
                 </p>
                 <p>
                     <strong>C.F.:</strong> 92105570391<br>
-                    <strong>Sede legale e operativa:</strong> Via Gambellara, 7, 48125 Ravenna frazione San Pietro in Vincoli RA<br>
+                    <strong>Sede legale e operativa:</strong> <a href="https://maps.app.goo.gl/BKAV6Yca4wChmzrr6" target="_blank" rel="noopener noreferrer" aria-label="Apri la sede su Google Maps" style="color: inherit; text-decoration: underline;">Via Gambellara, 7, 48125 Ravenna frazione San Pietro in Vincoli RA</a><br>
                     <strong>PEC:</strong> <a href="mailto:apiccolipassi.spiv@pec.it" style="color: inherit; text-decoration: underline;">apiccolipassi.spiv@pec.it</a><br>
                     <strong>Presidente:</strong> Glenda Sternini
                 </p>
@@ -3430,7 +3446,7 @@
 
         <div class="footer-bottom">
             <div>
-                &copy; 2026-2027 <strong>A Piccoli Passi APS</strong> • C.F. 92105570391 • San Pietro in Vincoli (RA).
+                &copy; 2026-2027 <strong>A Piccoli Passi APS</strong> • C.F. 92105570391 • Ravenna.
                 <span style="display: block; margin-top: 4px; font-size: 0.85rem;">
                     <a href="privacy.html" aria-label="Consulta la Privacy Policy" style="color: #ffffff; text-decoration: underline;">Privacy Policy</a> • 
                     <a href="documenti.html" aria-label="Consulta lo Statuto e i Documenti di Trasparenza" style="color: #ffffff; text-decoration: underline;">Statuto e Trasparenza</a>
